@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.core.dao.UserDao"> 
+	<resultMap id="BaseResultMap" type="com.core.model.User">
+		<id column="USERID" property="userid" jdbcType="INTEGER" />
+		<result column="USERNAME" property="username" jdbcType="VARCHAR" />
+		<result column="AGE" property="age" jdbcType="VARCHAR" />
+		<result column="SEX" property="sex" jdbcType="VARCHAR" />
+		<result column="BIRTHDAY" property="birthday" jdbcType="VARCHAR" />
+		<result column="EDUCATION" property="education" jdbcType="VARCHAR" />
+		<result column="JOBS" property="jobs" jdbcType="VARCHAR" />
+		<result column="QQ" property="qq" jdbcType="VARCHAR" />
+		<result column="TEL" property="tel" jdbcType="VARCHAR" />
+		<result column="INTEREST" property="interest" jdbcType="VARCHAR" />
+		<result column="INTRODUCE" property="introduce" jdbcType="VARCHAR" />
+		<result column="CREATDATE" property="creatdate" jdbcType="VARCHAR" />
+		<result column="EDITDATE" property="editdate" jdbcType="VARCHAR" />
+		<result column="ID" property="id" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		USERID, USERNAME, AGE, SEX, BIRTHDAY, EDUCATION, JOBS, QQ, TEL, INTEREST,
+		INTRODUCE,
+		CREATDATE, EDITDATE, ID
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where USERID = #{userid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from user
+		where USERID = #{userid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.core.model.User">
+		insert into user (USERID, USERNAME, AGE,
+		SEX, BIRTHDAY, EDUCATION,
+		JOBS, QQ, TEL, INTEREST,
+		INTRODUCE, CREATDATE, EDITDATE,
+		ID)
+		values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
+		#{age,jdbcType=VARCHAR},
+		#{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR},
+		#{jobs,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR},
+		#{tel,jdbcType=VARCHAR}, #{interest,jdbcType=VARCHAR},
+		#{introduce,jdbcType=VARCHAR}, #{creatdate,jdbcType=VARCHAR},
+		#{editdate,jdbcType=VARCHAR},
+		#{id,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.core.model.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userid != null">
+				USERID,
+			</if>
+			<if test="username != null">
+				USERNAME,
+			</if>
+			<if test="age != null">
+				AGE,
+			</if>
+			<if test="sex != null">
+				SEX,
+			</if>
+			<if test="birthday != null">
+				BIRTHDAY,
+			</if>
+			<if test="education != null">
+				EDUCATION,
+			</if>
+			<if test="jobs != null">
+				JOBS,
+			</if>
+			<if test="qq != null">
+				QQ,
+			</if>
+			<if test="tel != null">
+				TEL,
+			</if>
+			<if test="interest != null">
+				INTEREST,
+			</if>
+			<if test="introduce != null">
+				INTRODUCE,
+			</if>
+			<if test="creatdate != null">
+				CREATDATE,
+			</if>
+			<if test="editdate != null">
+				EDITDATE,
+			</if>
+			<if test="id != null">
+				ID,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userid != null">
+				#{userid,jdbcType=INTEGER},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				#{age,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				#{birthday,jdbcType=VARCHAR},
+			</if>
+			<if test="education != null">
+				#{education,jdbcType=VARCHAR},
+			</if>
+			<if test="jobs != null">
+				#{jobs,jdbcType=VARCHAR},
+			</if>
+			<if test="qq != null">
+				#{qq,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				#{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="interest != null">
+				#{interest,jdbcType=VARCHAR},
+			</if>
+			<if test="introduce != null">
+				#{introduce,jdbcType=VARCHAR},
+			</if>
+			<if test="creatdate != null">
+				#{creatdate,jdbcType=VARCHAR},
+			</if>
+			<if test="editdate != null">
+				#{editdate,jdbcType=VARCHAR},
+			</if>
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.core.model.User">
+		update user
+		<set>
+			<if test="username != null">
+				USERNAME = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				AGE = #{age,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				SEX = #{sex,jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+			</if>
+			<if test="education != null">
+				EDUCATION = #{education,jdbcType=VARCHAR},
+			</if>
+			<if test="jobs != null">
+				JOBS = #{jobs,jdbcType=VARCHAR},
+			</if>
+			<if test="qq != null">
+				QQ = #{qq,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				TEL = #{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="interest != null">
+				INTEREST = #{interest,jdbcType=VARCHAR},
+			</if>
+			<if test="introduce != null">
+				INTRODUCE = #{introduce,jdbcType=VARCHAR},
+			</if>
+			<if test="creatdate != null">
+				CREATDATE = #{creatdate,jdbcType=VARCHAR},
+			</if>
+			<if test="editdate != null">
+				EDITDATE = #{editdate,jdbcType=VARCHAR},
+			</if>
+			<if test="id != null">
+				ID = #{id,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where USERID = #{userid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.core.model.User">
+		update user
+		set USERNAME = #{username,jdbcType=VARCHAR},
+		AGE = #{age,jdbcType=VARCHAR},
+		SEX = #{sex,jdbcType=VARCHAR},
+		BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+		EDUCATION = #{education,jdbcType=VARCHAR},
+		JOBS = #{jobs,jdbcType=VARCHAR},
+		QQ = #{qq,jdbcType=VARCHAR},
+		TEL = #{tel,jdbcType=VARCHAR},
+		INTEREST = #{interest,jdbcType=VARCHAR},
+		INTRODUCE = #{introduce,jdbcType=VARCHAR},
+		CREATDATE = #{creatdate,jdbcType=VARCHAR},
+		EDITDATE = #{editdate,jdbcType=VARCHAR},
+		ID = #{id,jdbcType=VARCHAR}
+		where USERID = #{userid,jdbcType=INTEGER}
+	</update>
+</mapper>
