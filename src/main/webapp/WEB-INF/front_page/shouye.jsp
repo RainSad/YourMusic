@@ -10,8 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-${info.username }
-
+${info }
+${info2 }
+${total }
 <audio controls>
   <source src="http://song.music.response.itmf.cn/4c7b3cd1b7502988edc01cdded3df57b/57c3a46c/G010/M08/09/01/qoYBAFUOISGIVQ1MAAzM3r-oNRsAABBrAMy2Q8ADMz2091.m4a" type="audio/mpeg">
 </audio>

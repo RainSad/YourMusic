@@ -15,18 +15,18 @@
 			connectionURL="jdbc:mysql://localhost:3306/yourmusic" userId="root"
 			password="sun123" />
 
-		<javaModelGenerator targetPackage="com.core.model"
+		<javaModelGenerator targetPackage="com.core.model.music"
 			targetProject="D:/esendev/MARS_WorkPlace/YourMusic/src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="com.core.mapper"
+		<sqlMapGenerator targetPackage="com.core.dao.music"
 			targetProject="D:/esendev/MARS_WorkPlace/YourMusic/src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
-		<javaClientGenerator targetPackage="com.core.service"
+		<javaClientGenerator targetPackage="com.core.dao.music"
 			targetProject="D:/esendev/MARS_WorkPlace/YourMusic/src/main/java"
 			type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
@@ -36,7 +36,7 @@
 			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
 			selectByExampleQueryId="false"/> -->
 
-		<table tableName="user" domainObjectName="User"
+		<table tableName="music_search_info" domainObjectName="MusicSearchInfo"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
