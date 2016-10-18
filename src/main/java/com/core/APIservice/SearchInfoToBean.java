@@ -1,4 +1,4 @@
-package com.core.musicservice;
+package com.core.APIservice;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,9 +8,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.common.constant.Constant;
+import com.core.APIservice.SearchInfoToBean;
+import com.core.APIservice.ServiceMusicInfo;
 import com.core.model.music.SearchInfo;
-import com.core.musicservice.SearchInfoToBean;
-import com.core.musicservice.ServiceMusicInfo;
 import com.core.service.music.SearchInfoSer;
 
 @Controller

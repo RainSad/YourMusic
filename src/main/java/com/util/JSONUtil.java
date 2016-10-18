@@ -1,14 +1,5 @@
 package com.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Test;
-
-import com.core.controller.ToIndex;
-import com.core.model.music.SearchInfo;
-
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
