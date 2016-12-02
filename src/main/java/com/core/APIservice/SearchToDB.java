@@ -1,4 +1,4 @@
-package com.core.controller.music;
+package com.core.APIservice;
 
 import java.util.List;
 
@@ -8,8 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.common.constant.Constant;
-import com.core.APIservice.SearchInfoToBean;
-import com.core.APIservice.ServiceMusicInfo;
 import com.core.model.music.SearchInfo;
 import com.core.service.music.SearchInfoSer;
 
