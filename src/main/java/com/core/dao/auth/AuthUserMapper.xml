@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.core.dao.auth.AuthUserMapper" >
+  <resultMap id="BaseResultMap" type="com.core.model.auth.AuthUser" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, pwd
+  </sql>
+  <!-- 根据id查询用户 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <!-- 根据需要的条件查询用户 -->
+  <select id="selectBySelective" resultMap="BaseResultMap" parameterType="com.core.model.auth.AuthUser" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_user
+    where 1=1
+     <if test="id != null" >
+        and id = #{id,jdbcType=BIGINT}
+     </if>
+     <if test="name != null" >
+        and name = #{name,jdbcType=VARCHAR}
+     </if>
+     <if test="pwd != null" >
+        and pwd = #{pwd,jdbcType=VARCHAR}
+     </if>
+  </select>
+  <!-- 根据ids查询用户 -->
+  <select id="selectByPrimaryKeys" resultMap="BaseResultMap" parameterType="java.util.Collection" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_user
+    where id in
+    <foreach collection="ids" item="id" open="(" close=")" separator=",">
+      #{id,jdbcType=BIGINT}
+    </foreach>
+  </select>
+  <!-- 分页查询 -->
+  <select id="selectWithPagenation" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_user
+    limit #{page,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from auth_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.core.model.auth.AuthUser" >
+    insert into auth_user (id, name, pwd)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.core.model.auth.AuthUser" >
+    insert into auth_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="pwd != null" >
+        pwd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.core.model.auth.AuthUser" >
+    update auth_user
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.core.model.auth.AuthUser" >
+    update auth_user
+    set name = #{name,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
