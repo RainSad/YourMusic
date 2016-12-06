@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.core.dao.user.DaoUserInfo" >
+  <resultMap id="BaseResultMap" type="com.core.model.user.UserInfo" >
+    <id column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_key" property="userKey" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="INTEGER" />
+    <result column="user_birthday" property="userBirthday" jdbcType="VARCHAR" />
+    <result column="user_qq" property="userQq" jdbcType="INTEGER" />
+    <result column="user_wechat" property="userWechat" jdbcType="VARCHAR" />
+    <result column="user_scope" property="userScope" jdbcType="INTEGER" />
+    <result column="user_login_times" property="userLoginTimes" jdbcType="INTEGER" />
+    <result column="user_reg_ip" property="userRegIp" jdbcType="VARCHAR" />
+    <result column="user_reg_time" property="userRegTime" jdbcType="VARCHAR" />
+    <result column="user_last_login_ip" property="userLastLoginIp" jdbcType="VARCHAR" />
+    <result column="user_last_login_time" property="userLastLoginTime" jdbcType="VARCHAR" />
+    <result column="user_status" property="userStatus" jdbcType="INTEGER" />
+     <result column="user_discription" property="userDiscription" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, user_name, user_key, user_sex, user_birthday, user_qq, user_wechat, user_scope, 
+    user_login_times, user_reg_ip, user_reg_time, user_last_login_ip, user_last_login_time, 
+    user_status,user_discription
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user_info
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.core.model.user.UserInfo" >
+    insert into user_info (user_id, user_name, user_key, 
+      user_sex, user_birthday, user_qq, 
+      user_wechat, user_scope, user_login_times, 
+      user_reg_ip, user_reg_time, user_last_login_ip, 
+      user_last_login_time, user_status ,user_discription)
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userKey,jdbcType=VARCHAR}, 
+      #{userSex,jdbcType=INTEGER}, #{userBirthday,jdbcType=VARCHAR}, #{userQq,jdbcType=INTEGER}, 
+      #{userWechat,jdbcType=VARCHAR}, #{userScope,jdbcType=INTEGER}, #{userLoginTimes,jdbcType=INTEGER}, 
+      #{userRegIp,jdbcType=VARCHAR}, #{userRegTime,jdbcType=VARCHAR}, #{userLastLoginIp,jdbcType=VARCHAR}, 
+      #{userLastLoginTime,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER} ,#{userDiscription,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.core.model.user.UserInfo" >
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userKey != null" >
+        user_key,
+      </if>
+      <if test="userSex != null" >
+        user_sex,
+      </if>
+      <if test="userBirthday != null" >
+        user_birthday,
+      </if>
+      <if test="userQq != null" >
+        user_qq,
+      </if>
+      <if test="userWechat != null" >
+        user_wechat,
+      </if>
+      <if test="userScope != null" >
+        user_scope,
+      </if>
+      <if test="userLoginTimes != null" >
+        user_login_times,
+      </if>
+      <if test="userRegIp != null" >
+        user_reg_ip,
+      </if>
+      <if test="userRegTime != null" >
+        user_reg_time,
+      </if>
+      <if test="userLastLoginIp != null" >
+        user_last_login_ip,
+      </if>
+      <if test="userLastLoginTime != null" >
+        user_last_login_time,
+      </if>
+      <if test="userStatus != null" >
+        user_status,
+      </if>
+      <if test="userStatus != null" >
+        user_discription,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userKey != null" >
+        #{userKey,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="userBirthday != null" >
+        #{userBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null" >
+        #{userQq,jdbcType=INTEGER},
+      </if>
+      <if test="userWechat != null" >
+        #{userWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="userScope != null" >
+        #{userScope,jdbcType=INTEGER},
+      </if>
+      <if test="userLoginTimes != null" >
+        #{userLoginTimes,jdbcType=INTEGER},
+      </if>
+      <if test="userRegIp != null" >
+        #{userRegIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegTime != null" >
+        #{userRegTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userLastLoginIp != null" >
+        #{userLastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userLastLoginTime != null" >
+        #{userLastLoginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userStatus != null" >
+        #{userDiscription,jdbcType=VARCHAR},
+      </if>
+      
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.core.model.user.UserInfo" >
+    update user_info
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userKey != null" >
+        user_key = #{userKey,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        user_sex = #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="userBirthday != null" >
+        user_birthday = #{userBirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null" >
+        user_qq = #{userQq,jdbcType=INTEGER},
+      </if>
+      <if test="userWechat != null" >
+        user_wechat = #{userWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="userScope != null" >
+        user_scope = #{userScope,jdbcType=INTEGER},
+      </if>
+      <if test="userLoginTimes != null" >
+        user_login_times = #{userLoginTimes,jdbcType=INTEGER},
+      </if>
+      <if test="userRegIp != null" >
+        user_reg_ip = #{userRegIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userRegTime != null" >
+        user_reg_time = #{userRegTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userLastLoginIp != null" >
+        user_last_login_ip = #{userLastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userLastLoginTime != null" >
+        user_last_login_time = #{userLastLoginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        user_status = #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userStatus != null" >
+        user_discription = #{userdDscription,jdbcType=VARCHAR},
+      </if>
+      
+    </set>
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.core.model.user.UserInfo" >
+    update user_info
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_key = #{userKey,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=INTEGER},
+      user_birthday = #{userBirthday,jdbcType=VARCHAR},
+      user_qq = #{userQq,jdbcType=INTEGER},
+      user_wechat = #{userWechat,jdbcType=VARCHAR},
+      user_scope = #{userScope,jdbcType=INTEGER},
+      user_login_times = #{userLoginTimes,jdbcType=INTEGER},
+      user_reg_ip = #{userRegIp,jdbcType=VARCHAR},
+      user_reg_time = #{userRegTime,jdbcType=VARCHAR},
+      user_last_login_ip = #{userLastLoginIp,jdbcType=VARCHAR},
+      user_last_login_time = #{userLastLoginTime,jdbcType=VARCHAR},
+      user_status = #{userStatus,jdbcType=INTEGER}
+      user_discription = #{userDiscription,jdbcType=VARCHAR},
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>

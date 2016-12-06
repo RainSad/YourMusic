@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -70,13 +71,13 @@
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                         	
-                        	<form role="form" action="" method="post" class="registration-form">
+                        	<form role="form" action="Register.shtml" method="post" class="registration-form">
                         		
                         		<fieldset>
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
 		                        			<h3>Step 1 / 3</h3>
-		                            		<p>告诉我你是谁:</p>
+		                            		<p>告诉我你是谁: <c:if test="${status == 0 }"><a style="color: red;">此用户名已存在！</a></c:if></p>
 		                        		</div>
 		                        		<div class="form-top-right">
 		                        			<i class="fa fa-user"></i>
@@ -85,15 +86,15 @@
 		                            <div class="form-bottom">
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-first-name">昵称</label>
-				                        	<input type="text" name="form-first-name" placeholder="昵称..." class="form-first-name form-control" id="form-first-name">
+				                        	<input type="text" name="userName" placeholder="昵称..." class="form-first-name form-control" id="form-first-name">
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-last-name">用户名</label>
-				                        	<input type="text" name="form-last-name" placeholder="用户名..." class="form-last-name form-control" id="form-last-name">
+				                        	<input type="text" name="userId" placeholder="用户名..." class="form-last-name form-control" id="form-last-name">
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-about-yourself">关于自己...</label>
-				                        	<textarea name="form-about-yourself" placeholder="关于自己..." 
+				                        	<textarea name="userDiscription" placeholder="关于自己..." 
 				                        				class="form-about-yourself form-control" id="form-about-yourself"></textarea>
 				                        </div>
 				                        <button type="button" class="btn btn-next">下一步</button>
@@ -112,16 +113,16 @@
 		                            </div>
 		                            <div class="form-bottom">
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-email">Email</label>
-				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
+				                        	<label class="sr-only" for="form-email">性别</label>
+				                        	<input type="text" name="sex" placeholder="性别" class="form-email form-control" id="form-email">
 				                        </div>
 				                        <div class="form-group">
 				                    		<label class="sr-only" for="form-password">密码</label>
-				                        	<input type="password" name="form-password" placeholder="密码..." class="form-password form-control" id="form-password">
+				                        	<input type="password" name="password" placeholder="密码..." class="form-password form-control" id="form-password">
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-repeat-password">确认密码</label>
-				                        	<input type="password" name="form-repeat-password" placeholder="确认密码..." 
+				                        	<input type="password" name="repeatPassword" placeholder="确认密码..." 
 				                        				class="form-repeat-password form-control" id="form-repeat-password">
 				                        </div>
 				                        <button type="button" class="btn btn-previous">上一步</button>
@@ -142,15 +143,15 @@
 		                            <div class="form-bottom">
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-facebook">QQ</label>
-				                        	<input type="text" name="form-facebook" placeholder="QQ..." class="form-facebook form-control" id="form-facebook">
+				                        	<input type="text" name="qq" placeholder="QQ..." class="form-facebook form-control" id="form-facebook">
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-twitter">微信</label>
-				                        	<input type="text" name="form-twitter" placeholder="微信..." class="form-twitter form-control" id="form-twitter">
+				                        	<input type="text" name="wechat" placeholder="微信..." class="form-twitter form-control" id="form-twitter">
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-google-plus">微博</label>
-				                        	<input type="text" name="form-google-plus" placeholder="微博..." class="form-google-plus form-control" id="form-google-plus">
+				                        	<input type="text" name="weibo" placeholder="微博..." class="form-google-plus form-control" id="form-google-plus">
 				                        </div>
 				                        <button type="button" class="btn btn-previous">上一步</button>
 				                        <button type="submit" class="btn">点我注册!</button>
@@ -180,6 +181,12 @@
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
+
+	<script type="text/javascript">
+		function emailCheck(){
+			
+		}
+	</script>
 
     </body>
 

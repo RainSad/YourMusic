@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.core.dao.music.MusicSearchInfo" >
+  <resultMap id="BaseResultMap" type="com.core.model.music.SearchInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="msg" property="msg" jdbcType="VARCHAR" />
+    <result column="current_page" property="currentPage" jdbcType="INTEGER" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+    <result column="total_rows" property="totalRows" jdbcType="INTEGER" />
+    <result column="total_page" property="totalPage" jdbcType="INTEGER" />
+    <result column="filename" property="filename" jdbcType="VARCHAR" />
+    <result column="extname" property="extname" jdbcType="VARCHAR" />
+    <result column="m4afilesize" property="m4afilesize" jdbcType="INTEGER" />
+    <result column="filesize" property="filesize" jdbcType="INTEGER" />
+    <result column="bitrate" property="bitrate" jdbcType="INTEGER" />
+    <result column="isnew" property="isnew" jdbcType="VARCHAR" />
+    <result column="duration" property="duration" jdbcType="INTEGER" />
+    <result column="aibum_name" property="aibumName" jdbcType="VARCHAR" />
+    <result column="singername" property="singername" jdbcType="VARCHAR" />
+    <result column="hash" property="hash" jdbcType="VARCHAR" />
+    <result column="pagesize" property="pagesize" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, status, msg, current_page, keyword, total_rows, total_page, filename, extname, 
+    m4afilesize, filesize, bitrate, isnew, duration, aibum_name, singername, hash, pagesize
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from music_search_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from music_search_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.core.model.music.SearchInfo" >
+    insert into music_search_info (id, code, status, 
+      msg, current_page, keyword, 
+      total_rows, total_page, filename, 
+      extname, m4afilesize, filesize, 
+      bitrate, isnew, duration, 
+      aibum_name, singername, hash, 
+      pagesize)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{msg,jdbcType=VARCHAR}, #{currentPage,jdbcType=INTEGER}, #{keyword,jdbcType=VARCHAR}, 
+      #{totalRows,jdbcType=INTEGER}, #{totalPage,jdbcType=INTEGER}, #{filename,jdbcType=VARCHAR}, 
+      #{extname,jdbcType=VARCHAR}, #{m4afilesize,jdbcType=INTEGER}, #{filesize,jdbcType=INTEGER}, 
+      #{bitrate,jdbcType=INTEGER}, #{isnew,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, 
+      #{aibumName,jdbcType=VARCHAR}, #{singername,jdbcType=VARCHAR}, #{hash,jdbcType=VARCHAR}, 
+      #{pagesize,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.core.model.music.SearchInfo" >
+    insert into music_search_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+      <if test="currentPage != null" >
+        current_page,
+      </if>
+      <if test="keyword != null" >
+        keyword,
+      </if>
+      <if test="totalRows != null" >
+        total_rows,
+      </if>
+      <if test="totalPage != null" >
+        total_page,
+      </if>
+      <if test="filename != null" >
+        filename,
+      </if>
+      <if test="extname != null" >
+        extname,
+      </if>
+      <if test="m4afilesize != null" >
+        m4afilesize,
+      </if>
+      <if test="filesize != null" >
+        filesize,
+      </if>
+      <if test="bitrate != null" >
+        bitrate,
+      </if>
+      <if test="isnew != null" >
+        isnew,
+      </if>
+      <if test="duration != null" >
+        duration,
+      </if>
+      <if test="aibumName != null" >
+        aibum_name,
+      </if>
+      <if test="singername != null" >
+        singername,
+      </if>
+      <if test="hash != null" >
+        hash,
+      </if>
+      <if test="pagesize != null" >
+        pagesize,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="currentPage != null" >
+        #{currentPage,jdbcType=INTEGER},
+      </if>
+      <if test="keyword != null" >
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="totalRows != null" >
+        #{totalRows,jdbcType=INTEGER},
+      </if>
+      <if test="totalPage != null" >
+        #{totalPage,jdbcType=INTEGER},
+      </if>
+      <if test="filename != null" >
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="extname != null" >
+        #{extname,jdbcType=VARCHAR},
+      </if>
+      <if test="m4afilesize != null" >
+        #{m4afilesize,jdbcType=INTEGER},
+      </if>
+      <if test="filesize != null" >
+        #{filesize,jdbcType=INTEGER},
+      </if>
+      <if test="bitrate != null" >
+        #{bitrate,jdbcType=INTEGER},
+      </if>
+      <if test="isnew != null" >
+        #{isnew,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null" >
+        #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="aibumName != null" >
+        #{aibumName,jdbcType=VARCHAR},
+      </if>
+      <if test="singername != null" >
+        #{singername,jdbcType=VARCHAR},
+      </if>
+      <if test="hash != null" >
+        #{hash,jdbcType=VARCHAR},
+      </if>
+      <if test="pagesize != null" >
+        #{pagesize,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.core.model.music.SearchInfo" >
+    update music_search_info
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="currentPage != null" >
+        current_page = #{currentPage,jdbcType=INTEGER},
+      </if>
+      <if test="keyword != null" >
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="totalRows != null" >
+        total_rows = #{totalRows,jdbcType=INTEGER},
+      </if>
+      <if test="totalPage != null" >
+        total_page = #{totalPage,jdbcType=INTEGER},
+      </if>
+      <if test="filename != null" >
+        filename = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="extname != null" >
+        extname = #{extname,jdbcType=VARCHAR},
+      </if>
+      <if test="m4afilesize != null" >
+        m4afilesize = #{m4afilesize,jdbcType=INTEGER},
+      </if>
+      <if test="filesize != null" >
+        filesize = #{filesize,jdbcType=INTEGER},
+      </if>
+      <if test="bitrate != null" >
+        bitrate = #{bitrate,jdbcType=INTEGER},
+      </if>
+      <if test="isnew != null" >
+        isnew = #{isnew,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null" >
+        duration = #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="aibumName != null" >
+        aibum_name = #{aibumName,jdbcType=VARCHAR},
+      </if>
+      <if test="singername != null" >
+        singername = #{singername,jdbcType=VARCHAR},
+      </if>
+      <if test="hash != null" >
+        hash = #{hash,jdbcType=VARCHAR},
+      </if>
+      <if test="pagesize != null" >
+        pagesize = #{pagesize,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.core.model.music.SearchInfo" >
+    update music_search_info
+    set code = #{code,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      msg = #{msg,jdbcType=VARCHAR},
+      current_page = #{currentPage,jdbcType=INTEGER},
+      keyword = #{keyword,jdbcType=VARCHAR},
+      total_rows = #{totalRows,jdbcType=INTEGER},
+      total_page = #{totalPage,jdbcType=INTEGER},
+      filename = #{filename,jdbcType=VARCHAR},
+      extname = #{extname,jdbcType=VARCHAR},
+      m4afilesize = #{m4afilesize,jdbcType=INTEGER},
+      filesize = #{filesize,jdbcType=INTEGER},
+      bitrate = #{bitrate,jdbcType=INTEGER},
+      isnew = #{isnew,jdbcType=VARCHAR},
+      duration = #{duration,jdbcType=INTEGER},
+      aibum_name = #{aibumName,jdbcType=VARCHAR},
+      singername = #{singername,jdbcType=VARCHAR},
+      hash = #{hash,jdbcType=VARCHAR},
+      pagesize = #{pagesize,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

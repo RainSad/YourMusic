@@ -54,7 +54,7 @@
 
                     </ul>
                     <ul class="nav navbar-nav pull-right" >
-                        <li><a href="login.shtml">登录</a></li>
+                        <li><a href="toLogin.shtml">登录</a></li>
                         <li><a href="toRegister.shtml">注册</a></li>
                     </ul>
                 </div>

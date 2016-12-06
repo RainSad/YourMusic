@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -44,21 +45,23 @@
                         	<div class="form-top">
                         		<div class="form-top-left">
                         			<h3>登录到你的网站</h3>
-                            		<p>输入你的用户名和密码进行登录：</p>
+                            		<p>输入你的用户名和密码进行登录：<c:if test="${isExit == 0 }"><a style="color: red;">无此用户！</a></c:if>
+                            		<c:if test="${isExit == 1 }"><a style="color: red;">密码错误！</a></c:if>
+                            		<c:if test="${isExit == 2 }">登录成功！</c:if></p>
                         		</div>
                         		<div class="form-top-right">
                         			<i class="fa fa-key"></i>
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="login-form">
+			                    <form role="form" action="login.shtml" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">用户名</label>
-			                        	<input type="text" name="form-username" placeholder="用户名..." class="form-username form-control" id="form-username">
+			                        	<input type="text" name="userId" placeholder="用户名..." class="form-username form-control" id="form-username">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">密码</label>
-			                        	<input type="password" name="form-password" placeholder="密码..." class="form-password form-control" id="form-password">
+			                        	<input type="password" name="passWord" placeholder="密码..." class="form-password form-control" id="form-password">
 			                        </div>
 			                        <button type="submit" class="btn">登录!</button>
 			                    </form>
