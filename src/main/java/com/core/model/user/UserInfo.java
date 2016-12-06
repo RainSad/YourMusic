@@ -14,6 +14,8 @@ public class UserInfo {
     private Integer userQq;
 
     private String userWechat;
+    
+    private String userWeibo;
 
     private Integer userScope;
 
@@ -32,7 +34,15 @@ public class UserInfo {
     private String userDiscription;
 
     
-    public String getuserDiscription() {
+    public String getUserWeibo() {
+		return userWeibo;
+	}
+
+	public void setUserWeibo(String userWeibo) {
+		this.userWeibo = userWeibo;
+	}
+
+	public String getuserDiscription() {
 		return userDiscription;
 	}
 

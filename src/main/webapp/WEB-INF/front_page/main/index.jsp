@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="public/plugin/bootstrap-3.3.0-dist/dist/css/bootstrap.min.css">
     <!-- Custom styles for this template -->
     <link href="public/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/login/assets/font-awesome/css/font-awesome.min.css">
     <style type="text/css">
 
     </style>
@@ -53,10 +55,19 @@
                         </li>
 
                     </ul>
-                    <ul class="nav navbar-nav pull-right" >
-                        <li><a href="toLogin.shtml">登录</a></li>
-                        <li><a href="toRegister.shtml">注册</a></li>
-                    </ul>
+                    <c:if test="${empty userName}">
+                    	<ul class="nav navbar-nav pull-right" >
+	                        <li><a href="toLogin.shtml">登录</a></li>
+	                        <li><a href="toRegister.shtml">注册</a></li>
+                    	</ul>
+                    </c:if>
+                    <c:if test="${!(empty userName) }">
+                    	
+                    	<ul class="nav navbar-nav pull-right" >
+	                        <li><a><i class="fa fa-user"></i>&nbsp;${userName }</a></li>
+	                        <li><a href="exit.shtml"><i class="fa fa-close"></i>退出</a></li>
+                    	</ul>
+                    </c:if>
                 </div>
             </div>
         </nav>
@@ -197,10 +208,10 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="public/plugin/jquery-3.1.1.min.js"></script>
 <script src="public/plugin/bootstrap-3.3.0-dist/dist/js/bootstrap.min.js"></script>
-<!--
-<script src="../../assets/js/docs.min.js"></script>
-IE10 viewport hack for Surface/desktop Windows 8 bug
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
- -->
+<script type="text/javascript">
+	function openNewWindow(){
+		window.open("http://localhost:8080/YourMusic/login.shtml");
+	}
+</script>
 </body>
 </html>

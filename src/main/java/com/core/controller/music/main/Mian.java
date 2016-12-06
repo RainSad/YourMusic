@@ -31,13 +31,25 @@ public class Mian {
 	UserInfoSer userInfo;
 
 	@RequestMapping("index.shtml")
-	public String index() {
+	public String index(ModelMap model,HttpSession session) {
+		String userName = (String) session.getAttribute("userName");
+		String userDiscription = (String) session.getAttribute("userDiscription");
+		String userId = (String) session.getAttribute("userId");
+		System.out.println(userName);
+		model.addAttribute("userName", userName);
+		model.addAttribute("userId", userId);
+		model.addAttribute("userDiscription", userDiscription);
 		return "main/index";
 	}
 
 	@RequestMapping("toLogin.shtml")
 	public String toLogin() {
 		return "main/login";
+	}
+	@RequestMapping("exit.shtml")
+	public String exit(HttpSession session) {
+		session.invalidate();
+		return "main/index";
 	}
 
 	/**
@@ -75,7 +87,7 @@ public class Mian {
 				if(userInfomation != null){
 					session.setAttribute("userId", userInfomation.getUserId());
 					session.setAttribute("userName", userInfomation.getUserName());
-					session.setAttribute("userSex", userInfomation.getUserSex());
+					session.setAttribute("userDiscription", userInfomation.getuserDiscription());
 				}
 				model.addAttribute("isExit", 2);// 2登录成功
 				return "main/index";
@@ -90,6 +102,20 @@ public class Mian {
 		return "main/toRegister";
 	}
 
+	/**
+	 * 注册
+	 * @param userName
+	 * @param userId
+	 * @param userDiscription
+	 * @param password
+	 * @param repeatPassword
+	 * @param qq
+	 * @param wechat
+	 * @param weibo
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("Register.shtml")
 	public String Rigister(
 			String userName, 
@@ -108,6 +134,32 @@ public class Mian {
 		if(isExit.size() >= 1){
 			model.addAttribute("status", 0);//用户id已存在
 			return "main/toRegister"; 
+		}
+		UserInfo info = new UserInfo();
+		info.setUserName(userName);
+		info.setUserId(userId);
+		info.setuserDiscription(userDiscription);
+		info.setUserKey(password);
+		info.setUserQq(Integer.parseInt(qq));
+		info.setUserWechat(wechat);
+		info.setUserWeibo(weibo);
+		int isSave = userInfo.insertSelective(info);
+		if(isSave >= 1){//注册成功
+			UserLogin save = new UserLogin();
+			save.setUserId(userId);
+			save.setPassword(password);
+			save.setUsername(userName);
+			//保存到查询数据表
+			int insert = user.insert(save);
+			if(insert > 0){
+				session.setAttribute("userId", userId);
+				session.setAttribute("userName", userName);
+				session.setAttribute("userDiscription", userDiscription);
+			}
+			return "main/index";
+		}else if(isSave <1){
+			model.addAttribute("status", 1);//插入失败，注册失败
+			return "main/toRegister";
 		}
 		
 

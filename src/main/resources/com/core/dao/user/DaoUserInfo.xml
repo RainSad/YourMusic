@@ -16,12 +16,14 @@
     <result column="user_last_login_ip" property="userLastLoginIp" jdbcType="VARCHAR" />
     <result column="user_last_login_time" property="userLastLoginTime" jdbcType="VARCHAR" />
     <result column="user_status" property="userStatus" jdbcType="INTEGER" />
-     <result column="user_discription" property="userDiscription" jdbcType="VARCHAR" />
+    <result column="user_weibo" property="userWeibo" jdbcType="VARCHAR" />
+    <result column="user_discription" property="userDiscription" jdbcType="VARCHAR" />
+  
   </resultMap>
   <sql id="Base_Column_List" >
     user_id, user_name, user_key, user_sex, user_birthday, user_qq, user_wechat, user_scope, 
     user_login_times, user_reg_ip, user_reg_time, user_last_login_ip, user_last_login_time, 
-    user_status,user_discription
+    user_status,user_discription,user_weibo
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -38,12 +40,12 @@
       user_sex, user_birthday, user_qq, 
       user_wechat, user_scope, user_login_times, 
       user_reg_ip, user_reg_time, user_last_login_ip, 
-      user_last_login_time, user_status ,user_discription)
+      user_last_login_time, user_status ,user_discription,user_weibo)
     values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userKey,jdbcType=VARCHAR}, 
       #{userSex,jdbcType=INTEGER}, #{userBirthday,jdbcType=VARCHAR}, #{userQq,jdbcType=INTEGER}, 
       #{userWechat,jdbcType=VARCHAR}, #{userScope,jdbcType=INTEGER}, #{userLoginTimes,jdbcType=INTEGER}, 
       #{userRegIp,jdbcType=VARCHAR}, #{userRegTime,jdbcType=VARCHAR}, #{userLastLoginIp,jdbcType=VARCHAR}, 
-      #{userLastLoginTime,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER} ,#{userDiscription,jdbcType=VARCHAR})
+      #{userLastLoginTime,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER} ,#{userDiscription,jdbcType=VARCHAR},#{userWeibo,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.core.model.user.UserInfo" >
     insert into user_info
@@ -93,6 +95,9 @@
       <if test="userStatus != null" >
         user_discription,
       </if>
+       <if test="userStatus != null" >
+        user_weibo,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -139,6 +144,9 @@
       </if>
       <if test="userStatus != null" >
         #{userDiscription,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        #{userWeibo,jdbcType=VARCHAR},
       </if>
       
     </trim>
@@ -188,7 +196,9 @@
       <if test="userStatus != null" >
         user_discription = #{userdDscription,jdbcType=VARCHAR},
       </if>
-      
+      <if test="userStatus != null" >
+        user_weibo = #{userWeibo,jdbcType=VARCHAR},
+      </if>
     </set>
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
@@ -208,6 +218,7 @@
       user_last_login_time = #{userLastLoginTime,jdbcType=VARCHAR},
       user_status = #{userStatus,jdbcType=INTEGER}
       user_discription = #{userDiscription,jdbcType=VARCHAR},
+      user_weibo = #{userWeibo,jdbcType=VARCHAR},
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
 </mapper>
