@@ -35,7 +35,6 @@ public class Mian {
 		String userName = (String) session.getAttribute("userName");
 		String userDiscription = (String) session.getAttribute("userDiscription");
 		String userId = (String) session.getAttribute("userId");
-		System.out.println(userName);
 		model.addAttribute("userName", userName);
 		model.addAttribute("userId", userId);
 		model.addAttribute("userDiscription", userDiscription);

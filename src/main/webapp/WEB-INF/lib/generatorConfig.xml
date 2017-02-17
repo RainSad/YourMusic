@@ -15,18 +15,18 @@
 			connectionURL="jdbc:mysql://localhost:3306/yourmusic" userId="root"
 			password="sun123" />
 
-		<javaModelGenerator targetPackage="com.core.model.user"
+		<javaModelGenerator targetPackage="com.core.model.index"
 			targetProject="D:/esendev/MARS_WorkPlace/YourMusic/src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="false" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="com.core.dao.user"
-			targetProject="D:/esendev/MARS_WorkPlace/YourMusic/src/main/java">
+		<sqlMapGenerator targetPackage="com.core.dao.index"
+			targetProject="D:/esendev/MARS_WorkPlace/YourMusic/src/main/resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
-		<javaClientGenerator targetPackage="com.core.dao.user"
+		<javaClientGenerator targetPackage="com.core.dao.index"
 			targetProject="D:/esendev/MARS_WorkPlace/YourMusic/src/main/java"
 			type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
@@ -36,13 +36,8 @@
 			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
 			selectByExampleQueryId="false"/> -->
 
-		<table tableName="user_login" domainObjectName="UserLogin"
-			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false">
-			<!--<columnRenamingRule searchString="^D_" replaceString=""/> -->
-		</table>
-		<table tableName="user_info" domainObjectName="UserInfo"
+		
+		<table tableName="index_music_info" domainObjectName="indexMusicInfo"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">

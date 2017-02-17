@@ -55,7 +55,7 @@ public class SearchToDB {
 						s++;
 						seachInfoSer.insertSelective(list3.get(j));
 					}
-				}else {
+				} else {
 					for (int j = 0; j < totalRows - (size * (pageSize - 1)); j++) {
 						s++;
 						seachInfoSer.insertSelective(list3.get(j));

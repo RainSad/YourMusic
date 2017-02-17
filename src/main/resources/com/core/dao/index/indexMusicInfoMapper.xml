@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.core.dao.index.indexMusicInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.core.model.index.indexMusicInfo" >
+    <id column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="music_discription" property="musicDiscription" jdbcType="VARCHAR" />
+    <result column="music_img_src" property="musicImgSrc" jdbcType="VARCHAR" />
+    <result column="music_company" property="musicCompany" jdbcType="VARCHAR" />
+    <result column="music_paly_info" property="musicPalyInfo" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="click_num" property="clickNum" jdbcType="VARCHAR" />
+    <result column="support_num" property="supportNum" jdbcType="VARCHAR" />
+    <result column="is_top" property="isTop" jdbcType="VARCHAR" />
+    <result column="yuliu1" property="yuliu1" jdbcType="VARCHAR" />
+    <result column="yuliu2" property="yuliu2" jdbcType="VARCHAR" />
+    <result column="yuliu3" property="yuliu3" jdbcType="VARCHAR" />
+    <result column="yuliu4" property="yuliu4" jdbcType="VARCHAR" />
+    <result column="yuliu5" property="yuliu5" jdbcType="VARCHAR" />
+    <result column="yuliu6" property="yuliu6" jdbcType="VARCHAR" />
+    <result column="yuliu7" property="yuliu7" jdbcType="VARCHAR" />
+    <result column="yuliu8" property="yuliu8" jdbcType="VARCHAR" />
+    <result column="yuliu9" property="yuliu9" jdbcType="VARCHAR" />
+    <result column="yuliu10" property="yuliu10" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, music_discription, music_img_src, music_company, music_paly_info, time, 
+    click_num, support_num, is_top, yuliu1, yuliu2, yuliu3, yuliu4, yuliu5, yuliu6, yuliu7, 
+    yuliu8, yuliu9, yuliu10
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from index_music_info
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from index_music_info
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.core.model.index.indexMusicInfo" >
+    insert into index_music_info (user_id, music_discription, music_img_src, 
+      music_company, music_paly_info, time, 
+      click_num, support_num, is_top, 
+      yuliu1, yuliu2, yuliu3, 
+      yuliu4, yuliu5, yuliu6, 
+      yuliu7, yuliu8, yuliu9, 
+      yuliu10)
+    values (#{userId,jdbcType=VARCHAR}, #{musicDiscription,jdbcType=VARCHAR}, #{musicImgSrc,jdbcType=VARCHAR}, 
+      #{musicCompany,jdbcType=VARCHAR}, #{musicPalyInfo,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{clickNum,jdbcType=VARCHAR}, #{supportNum,jdbcType=VARCHAR}, #{isTop,jdbcType=VARCHAR}, 
+      #{yuliu1,jdbcType=VARCHAR}, #{yuliu2,jdbcType=VARCHAR}, #{yuliu3,jdbcType=VARCHAR}, 
+      #{yuliu4,jdbcType=VARCHAR}, #{yuliu5,jdbcType=VARCHAR}, #{yuliu6,jdbcType=VARCHAR}, 
+      #{yuliu7,jdbcType=VARCHAR}, #{yuliu8,jdbcType=VARCHAR}, #{yuliu9,jdbcType=VARCHAR}, 
+      #{yuliu10,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.core.model.index.indexMusicInfo" >
+    insert into index_music_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="musicDiscription != null" >
+        music_discription,
+      </if>
+      <if test="musicImgSrc != null" >
+        music_img_src,
+      </if>
+      <if test="musicCompany != null" >
+        music_company,
+      </if>
+      <if test="musicPalyInfo != null" >
+        music_paly_info,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="clickNum != null" >
+        click_num,
+      </if>
+      <if test="supportNum != null" >
+        support_num,
+      </if>
+      <if test="isTop != null" >
+        is_top,
+      </if>
+      <if test="yuliu1 != null" >
+        yuliu1,
+      </if>
+      <if test="yuliu2 != null" >
+        yuliu2,
+      </if>
+      <if test="yuliu3 != null" >
+        yuliu3,
+      </if>
+      <if test="yuliu4 != null" >
+        yuliu4,
+      </if>
+      <if test="yuliu5 != null" >
+        yuliu5,
+      </if>
+      <if test="yuliu6 != null" >
+        yuliu6,
+      </if>
+      <if test="yuliu7 != null" >
+        yuliu7,
+      </if>
+      <if test="yuliu8 != null" >
+        yuliu8,
+      </if>
+      <if test="yuliu9 != null" >
+        yuliu9,
+      </if>
+      <if test="yuliu10 != null" >
+        yuliu10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="musicDiscription != null" >
+        #{musicDiscription,jdbcType=VARCHAR},
+      </if>
+      <if test="musicImgSrc != null" >
+        #{musicImgSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="musicCompany != null" >
+        #{musicCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="musicPalyInfo != null" >
+        #{musicPalyInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="clickNum != null" >
+        #{clickNum,jdbcType=VARCHAR},
+      </if>
+      <if test="supportNum != null" >
+        #{supportNum,jdbcType=VARCHAR},
+      </if>
+      <if test="isTop != null" >
+        #{isTop,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu1 != null" >
+        #{yuliu1,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu2 != null" >
+        #{yuliu2,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu3 != null" >
+        #{yuliu3,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu4 != null" >
+        #{yuliu4,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu5 != null" >
+        #{yuliu5,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu6 != null" >
+        #{yuliu6,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu7 != null" >
+        #{yuliu7,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu8 != null" >
+        #{yuliu8,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu9 != null" >
+        #{yuliu9,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu10 != null" >
+        #{yuliu10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.core.model.index.indexMusicInfo" >
+    update index_music_info
+    <set >
+      <if test="musicDiscription != null" >
+        music_discription = #{musicDiscription,jdbcType=VARCHAR},
+      </if>
+      <if test="musicImgSrc != null" >
+        music_img_src = #{musicImgSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="musicCompany != null" >
+        music_company = #{musicCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="musicPalyInfo != null" >
+        music_paly_info = #{musicPalyInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="clickNum != null" >
+        click_num = #{clickNum,jdbcType=VARCHAR},
+      </if>
+      <if test="supportNum != null" >
+        support_num = #{supportNum,jdbcType=VARCHAR},
+      </if>
+      <if test="isTop != null" >
+        is_top = #{isTop,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu1 != null" >
+        yuliu1 = #{yuliu1,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu2 != null" >
+        yuliu2 = #{yuliu2,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu3 != null" >
+        yuliu3 = #{yuliu3,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu4 != null" >
+        yuliu4 = #{yuliu4,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu5 != null" >
+        yuliu5 = #{yuliu5,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu6 != null" >
+        yuliu6 = #{yuliu6,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu7 != null" >
+        yuliu7 = #{yuliu7,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu8 != null" >
+        yuliu8 = #{yuliu8,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu9 != null" >
+        yuliu9 = #{yuliu9,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu10 != null" >
+        yuliu10 = #{yuliu10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.core.model.index.indexMusicInfo" >
+    update index_music_info
+    set music_discription = #{musicDiscription,jdbcType=VARCHAR},
+      music_img_src = #{musicImgSrc,jdbcType=VARCHAR},
+      music_company = #{musicCompany,jdbcType=VARCHAR},
+      music_paly_info = #{musicPalyInfo,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      click_num = #{clickNum,jdbcType=VARCHAR},
+      support_num = #{supportNum,jdbcType=VARCHAR},
+      is_top = #{isTop,jdbcType=VARCHAR},
+      yuliu1 = #{yuliu1,jdbcType=VARCHAR},
+      yuliu2 = #{yuliu2,jdbcType=VARCHAR},
+      yuliu3 = #{yuliu3,jdbcType=VARCHAR},
+      yuliu4 = #{yuliu4,jdbcType=VARCHAR},
+      yuliu5 = #{yuliu5,jdbcType=VARCHAR},
+      yuliu6 = #{yuliu6,jdbcType=VARCHAR},
+      yuliu7 = #{yuliu7,jdbcType=VARCHAR},
+      yuliu8 = #{yuliu8,jdbcType=VARCHAR},
+      yuliu9 = #{yuliu9,jdbcType=VARCHAR},
+      yuliu10 = #{yuliu10,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>
